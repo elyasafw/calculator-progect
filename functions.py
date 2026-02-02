@@ -20,3 +20,12 @@ def multiply(num1, num2):
         return num1 * num2
     else:
         return "You can only perform arithmetic operations on numbers!"
+    
+# Root calculation function with a dipole value of 0.5
+def root(num1, num2 = 0.5):
+    try:
+        return num1**num2
+    except ValueError,TypeError:
+        return "Please select a number"
+    
+    
