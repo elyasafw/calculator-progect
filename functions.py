@@ -20,6 +20,13 @@ def multiply(num1, num2):
         return num1 * num2
     else:
         return "You can only perform arithmetic operations on numbers!"
+    
+# Root calculation function with a dipole value of 0.5
+def root(num1, num2 = 2):
+    try:
+        return num1**(1/num2)
+    except ValueError,TypeError:
+        return "Please select a number"
 
 #function that divider num 1 / num 2
 def divide(num1, num2):
@@ -46,5 +53,4 @@ def holding(num1, num2):
         return num1 ** num2
     except (ValueError,TypeError,ZeroDivisionError):
         return "Invalid input for power calculation"
-
 
