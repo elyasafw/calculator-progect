@@ -22,7 +22,7 @@ def multiply(num1, num2):
         return "You can only perform arithmetic operations on numbers!"
 #function that divider num 1 / num 2
 def divide(num1, num2):
-    if num2 == 0 or num1 == 0:
+    if num2 <= 0 or num1 <= 0:
         return "division by zero!"
     elif type(num1) != int and type(num2) != int:
         return "Please enter numbers only"
