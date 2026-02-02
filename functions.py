@@ -20,3 +20,13 @@ def multiply(num1, num2):
         return num1 * num2
     else:
         return "You can only perform arithmetic operations on numbers!"
+    
+
+# Function that calculates the area of ​​a square and a rectangle
+def square_area(Length, width):
+    if type(Length) == int and type(width) == int:
+        return Length * width
+    elif Length <= 0 or width <= 0:
+        return "There is no area size with value 0.."
+    else:
+        return "You can only perform area calculations on numbers!"
