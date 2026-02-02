@@ -20,6 +20,7 @@ def multiply(num1, num2):
         return num1 * num2
     else:
         return "You can only perform arithmetic operations on numbers!"
+#function that divider num 1 / num 2
 def divide(num1, num2):
     if num2 == 0 or num1 == 0:
         return "division by zero!"
