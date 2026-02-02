@@ -54,3 +54,8 @@ def holding(num1, num2):
     except (ValueError,TypeError,ZeroDivisionError):
         return "Invalid input for power calculation"
 
+def triangle_area(base, height):
+    try:
+        return base * height
+    except ValueError,TypeError:
+        return "Please select a number"
