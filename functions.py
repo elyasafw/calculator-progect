@@ -27,5 +27,30 @@ def root(num1, num2 = 2):
         return num1**(1/num2)
     except ValueError,TypeError:
         return "Please select a number"
+
+#function that divider num 1 / num 2
+def divide(num1, num2):
+    if num2 == 0 or num1 == 0:
+        return "division by zero!"
+    elif type(num1) != int and type(num2) != int:
+        return "Please enter numbers only"
+    else:
+        return num1/num2
+
     
-    
+
+# Function that calculates the area of ​​a square and a rectangle
+def square_area(Length, width):
+    if type(Length) == int and type(width) == int:
+        return Length * width
+    elif Length <= 0 or width <= 0:
+        return "There is no area size with value 0.."
+    else:
+        return "You can only perform area calculations on numbers!"
+#that function calculate num1 ** num2
+def holding(num1, num2):
+    try:
+        return num1 ** num2
+    except (ValueError,TypeError,ZeroDivisionError):
+        return "Invalid input for power calculation"
+
