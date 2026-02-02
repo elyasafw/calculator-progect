@@ -40,4 +40,11 @@ def square_area(Length, width):
         return "There is no area size with value 0.."
     else:
         return "You can only perform area calculations on numbers!"
+#that function calculate num1 ** num2
+def holding(num1, num2):
+    try:
+        return num1 ** num2
+    except (ValueError,TypeError,ZeroDivisionError):
+        return "Invalid input for power calculation"
+
 
