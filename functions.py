@@ -33,7 +33,7 @@ def square_area(Length, width):
     
 
 # A function that accepts a radius array and returns the circumference of a circle
-def square_circle(radius):
+def calculate_circle(radius):
     if not isinstance(radius, (int, float)):
         return "Only numbers can be calculated."
     if radius <= 0:
