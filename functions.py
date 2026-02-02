@@ -60,3 +60,8 @@ def absolute_value(num1):
     except TypeError:
         return "Please enter numbers only"
 
+def triangle_area(base, height):
+    try:
+        return base * height
+    except ValueError,TypeError:
+        return "Please select a number"
