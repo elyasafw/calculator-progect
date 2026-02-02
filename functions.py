@@ -46,5 +46,11 @@ def holding(num1, num2):
         return num1 ** num2
     except (ValueError,TypeError,ZeroDivisionError):
         return "Invalid input for power calculation"
+#htat function return absolute the num1
+def absolute_value(num1):
+    try:
+        return abs(num1)
+    except TypeError:
+        return "Please enter numbers only"
 
 
