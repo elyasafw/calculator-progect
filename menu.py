@@ -1,69 +1,46 @@
 import functions as f
 
-def menu():
-    print("1. add\n\
-2. subtraction\n\
-3. multiplication\n\
-4. division\n\
-5. holding\n\
-6. root\n\
-7. absolute value\n\
-8. triangular area\n\
-9. square/rectangle area\n\
-10. circle area")
+def display_options():
+    print("\n-- Calculator Menu --")
+    options = [
+        "Add", "Subtraction", "Multiplication", "Division", "Holding",
+        "Root", "Absolute Value", "Triangular Area", "Square/Rectangle Area", "Circle Area"
+    ]
+    for i, opt in enumerate(options, 1):
+        print(f"{i}. {opt}")
+
+def get_user_choice():
     while True:
-        user_operation = input("Please select the desired calculation operation (1-10):  ")
-        if not user_operation.isdigit() or 0 >= int(user_operation) or 10 < int(user_operation):
-            print("Please select again..")
-        else:
-            break
+        choice = input("Select operation (1-10):  ")
+        if choice.isdigit() and 1 <= int(choice) <= 10:
+            return choice
+        print("Invalid choice.. Please select 1-10!")
 
-    return user_operation
+def process_calculation(op):
+    functions_map = {
+        "1": f.add, "2": f.func_sub, "3": f.multiply, "4": f.divide,
+        "5": f.holding, "6": f.root, "7": f.absolute_value,
+        "8": f.triangle_area, "9": f.square_area, "10": f.calculate_circle
+    }
 
-
-def user_nums(user_operation):
-    while True:
-            if user_operation == "7" or user_operation == "10":
-                user_number1 = input("Enter a number to calculate:  ")
-                user_number2 = 1
-                try:
-                    user_number1 = float(user_number1)
-                    break
-                except ValueError:
-                    print("Please enter numbers only!")
-            elif user_operation == "6":
-                user_number1 = input("Enter a base number for calculation:  ")
-                user_number2 = input("Enter a secondary number for calculation:  ")
-                try:
-                    user_number1 = float(user_number1)
-                    if user_number2 == "":
-                        user_number2 = 2
-                        break
-                    else:
-                        user_number2 = float(user_number2)
-                        break
-                except ValueError:
-                    print("Please enter numbers only!")
+    try:
+        if op in ["7", "10"]:
+            num1_input = float(input("Enter number:  "))
+            return functions_map[op](num1_input)
+            
+        elif op == "6":
+            num1_input = float(input("Enter base number:  "))
+            num2_input = input("Enter root degree (default 2):  ")
+            if num2_input != "":
+                num2 = float(num2_input) 
             else:
-                user_number1 = input("Enter a base number for calculation:  ")
-                user_number2 = input("Enter a secondary number for calculation:  ")
-                try:
-                    user_number1 = float(user_number1)
-                    user_number2 = float(user_number2)
-                    break
-                except ValueError:
-                    print("Please enter numbers only!")
+                num2 = 2
+            return f.root(num1_input, num2)
+            
+        else:
+            num1_input = float(input("Enter first number:  "))
+            num2_input = float(input("Enter second number:  "))
+            return functions_map[op](num1_input, num2_input)
 
-    operations_list = [f.add(user_number1, user_number2),
-                       f.func_sub(user_number1, user_number2),
-                       f.multiply(user_number1, user_number2),
-                       f.divide(user_number1, user_number2),
-                       f.holding(user_number1, user_number2),
-                       f.root(user_number1, user_number2),
-                       f.absolute_value(user_number1),
-                       f.triangle_area(user_number1, user_number2),
-                       f.square_area(user_number1, user_number2),
-                       f.calculate_circle(user_number1)]
-    
-
-    print(operations_list[int(user_operation) - 1])
+    except ValueError:
+        return "Error: Please enter valid numbers only!"

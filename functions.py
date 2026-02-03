@@ -1,57 +1,61 @@
-#function add num 1 +num 2
-def add(num1, num2):
-        return num1 + num2
+import math
 
-      
-# This is a function that accepts 2 numbers and returns their subtraction.
-def func_sub(num1, num2):
-        return num1 - num2
-    
-    
-# A function that performs a multiplication operation between 2 numbers
-def multiply(num1, num2):
-        return num1 * num2
 
-    
-# Root calculation function with a dipole value of 0.5
-def root(num1, num2):
-    try:
-        return num1**(1/num2)
-    except ZeroDivisionError:
-        return "Cannot be divided by 0 or less.."
+def add(n1, n2):
+    """Adds two numbers and returns the sum."""
+    return n1 + n2
 
-#function that divider num 1 / num 2
-def divide(num1, num2):
-    try:
-        return num1/num2
-    except ZeroDivisionError:
-         return "Cannot be divided by 0 or less.."
 
-    
-# Function that calculates the area of ​​a square and a rectangle
-def square_area(Length, width):
-    if Length <= 0 or width <= 0:
-        return "There is no area size with value 0 or less.."
-    return Length * width
+def func_sub(n1, n2):
+    """Subtracts the second number from the first."""
+    return n1 - n2
 
-    
-# A function that accepts a radius array and returns the circumference of a circle
-def calculate_circle(radius):
-    if radius <= 0:
-        return "Cannot calculate 0 or negative radius.."
-    pi_approx = 3.14159
-    return pi_approx * (radius ** 2)
 
-  
-#that function calculate num1 ** num2
-def holding(num1, num2):
-    return num1 ** num2
-      
-      
-#htat function return absolute the num1
-def absolute_value(num1):
-    return abs(num1)
+def multiply(n1, n2):
+    """Multiplies two numbers."""
+    return n1 * n2
 
-      
+
+def divide(n1, n2):
+    """Divides the first number by the second. Includes zero division check."""
+    if n2 == 0:
+        return "Error: Cannot divide by zero!"
+    return n1 / n2
+
+
+def holding(n1, n2):
+    """Calculates the first number to the power of the second."""
+    return n1 ** n2
+
+
+def root(n1, n2=2):
+    """Calculates the n-th root of a number. Default is square root."""
+    if n1 < 0 and n2 % 2 == 0:
+        return "Error: Cannot calculate even root of a negative number!"
+    return n1 ** (1/n2)
+
+
+def absolute_value(n1):
+    """Returns the absolute value of a number (distance from zero)."""
+    return abs(n1)
+
+
 def triangle_area(base, height):
-    return base * height
+    """Calculates triangle area using base and height."""
+    if base <= 0 or height <= 0:
+        return "Error: Dimensions must be positive!"
+    return (base * height) / 2
+
+
+def square_area(length, width):
+    """Calculates square or rectangle area using length and width."""
+    if length <= 0 or width <= 0:
+        return "Error: Dimensions must be positive!"
+    return length * width
+
+
+def calculate_circle(radius):
+    """Calculates the area of a circle using its radius."""
+    if radius <= 0:
+        return "Error: Radius must be positive!"
+    return 3.14159 * (radius ** 2)
